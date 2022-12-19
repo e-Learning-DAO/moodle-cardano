@@ -286,7 +286,7 @@ class auth_plugin_userkey extends auth_plugin_base {
         $user['confirmed'] = 1;
         $user['mnethostid'] = $CFG->mnet_localhost_id;
 
-        $requiredfieds = ['username', 'email', 'firstname', 'lastname'];
+        $requiredfieds = ['username'];
         $missingfields = [];
         foreach ($requiredfieds as $requiredfied) {
             if (empty($user[$requiredfied])) {
@@ -299,12 +299,6 @@ class auth_plugin_userkey extends auth_plugin_base {
 
         if ($DB->record_exists('user', array('username' => $user['username'], 'mnethostid' => $CFG->mnet_localhost_id))) {
             throw new invalid_parameter_exception('Username already exists: '.$user['username']);
-        }
-        if (!validate_email($user['email'])) {
-            throw new invalid_parameter_exception('Email address is invalid: '.$user['email']);
-        } else if (empty($CFG->allowaccountssameemail) &&
-            $DB->record_exists('user', array('email' => $user['email'], 'mnethostid' => $user['mnethostid']))) {
-            throw new invalid_parameter_exception('Email address already exists: '.$user['email']);
         }
 
         $userid = user_create_user($user);
