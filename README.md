@@ -1,3 +1,11 @@
+### This project is a simple modification of the Moodle plugin https://moodle.org/plugins/auth_userkey
+
+Together with [moodle-cardano-connect](https://github.com/eLearningDAO/moodle-cardano-connect) they allow login to courses by using a simple Cardano wallet.
+
+Follow the original instructions for the correct plugin installation.
+
+---------------------------------------------------------------------
+
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/catalyst/moodle-auth_userkey/ci/MOODLE_33PLUS)
 
 
